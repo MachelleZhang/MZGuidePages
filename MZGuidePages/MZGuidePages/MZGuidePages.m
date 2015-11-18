@@ -124,7 +124,13 @@
 
 #pragma mark
 #pragma mark UIScrollView delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    _pageControl.currentPage = (_scrollView.contentOffset.x + SCREEN_WIDTH / 2) / SCREEN_WIDTH;
+//}
+
+//在结束滚动时设置页面，比滚动中改变页面性能更好，因为滚动一次只调用一次
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 {
     _pageControl.currentPage = (_scrollView.contentOffset.x + SCREEN_WIDTH / 2) / SCREEN_WIDTH;
 }
